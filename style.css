@@ -7,6 +7,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 body{
     background-color: #121212;
     width: 100%;
@@ -43,7 +48,7 @@ body{
     position: relative;
 }
 
-.form-label {
+.form-content label {
     display: inline-block;
     margin-bottom: 4px;
 }
@@ -54,4 +59,31 @@ body{
     border-radius: 8px;
     padding: 8px;
     border: 2px solid #dfdfdf;
+}
+
+.form-content a {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    visibility: hidden;
+}
+
+.form button {
+    background-color: #00c3ff;
+    color: #fff;
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+    padding: 10px;
+    margin-top: 14px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-content.error input{
+    border-color: #ff3b25;
+}
+
+.form-content.error a {
+    color: #ff3b25;
 }
