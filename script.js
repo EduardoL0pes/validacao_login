@@ -6,5 +6,34 @@ const passwordConfirmation = document.getElementById('password-confirmation');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    alert('cadastrado com sucesso!!');
+    checkInputUsername();
+    checkInputEmail();
 });
+
+function checkInputUsername() {
+    const usernameValue = username.value;
+    if (usernameValue === '') {
+        errorInput(username, 'Campo Obrigatório!');
+    } else {
+        const formItem = username.parentElement;
+        formItem.className = 'form-content';
+    }
+}
+
+function checkInputEmail() {
+    const emailValue = email.value;
+    if (emailValue === '') {
+        errorInput(email, 'Campo Obrigatório');
+    } else {
+        const formItem = email.parentElement;
+        formItem.className = 'form-content';
+    }
+}
+
+function errorInput(input, message) {
+    const formItem = input.parentElement;
+    const textMessage = formItem.querySelector('a');
+
+    textMessage.innerText = message;
+    formItem.className = 'form-content error';
+}
