@@ -6,8 +6,10 @@ const passwordConfirmation = document.getElementById('password-confirmation');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
+
     checkInputUsername();
     checkInputEmail();
+    checkInputPassword();
 });
 
 function checkInputUsername() {
@@ -26,6 +28,18 @@ function checkInputEmail() {
         errorInput(email, 'Campo Obrigatório');
     } else {
         const formItem = email.parentElement;
+        formItem.className = 'form-content';
+    }
+}
+
+function checkInputPassword() {
+    const passwordValue = password.value;
+    if (passwordValue === '') {
+        errorInput(password, 'Senha Obrigatória.');
+    } else if (passwordValue.length < 8) {
+        errorInput(password, 'A senha precisa ter no mínimo 8 caracteres.');
+    } else {
+        const formItem = password.parentElement;
         formItem.className = 'form-content';
     }
 }
